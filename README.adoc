@@ -4,31 +4,32 @@
 :source-highlighter: prettify
 :project_id: gs-relational-data-access
 
+Project made by following the Spring guide.
+
 Accessing relational data with Spring.
 
-The simple data access logic you will work with manages the first and last names of
+In this simple data access logic I worked with manages the first and last names of
 customers.
 
 == Store and Retrieve Data
 
 This `Application` class implements Spring Boot's `CommandLineRunner`.
 
-First, install some DDL by using the `execute` method of `JdbcTemplate`.
+First, I used the `execute` method of `JdbcTemplate`.
 
-Second, take a list of strings and, by using Java 8 streams, split them into
-firstname/lastname pairs in a Java array.
+Second, I took a list of strings and split them into firstname/lastname pairs in
+an array.
 
-Then install some records in your newly created table by using the `batchUpdate` method of
+Then inserted some records in the table by using the `batchUpdate` method of
 `JdbcTemplate`. The first argument to the method call is the query string. The last
-argument (the array of `Object` instances) holds the variables to be substituted into the
+argument holds the variables to be substituted into the
 query where the `?` characters are.
 
-Finally, use the `query` method to search your table for records that match the criteria.
-You again use the `?` arguments to create parameters for the query, passing in the actual
-values when you make the call. The last argument is a Java 8 lambda that is used to
-convert each result row into a new `Customer` object.
+Finally, used the `query` method to search table for records that match the criteria.
+The last argument is a Java 8 lambda that is used to convert each result row into a
+new `Customer` object.
 
-You should see the following output:
+Here is the output:
 
 ====
 [source,bash]
